@@ -9,10 +9,17 @@ const genres = require("./routes/genre");
 const home = require("./routes/home");
 const movies = require("./routes/movies");
 const rentals = require("./routes/rentals");
+const users = require("./routes/users");
+const auth = require("./routes/auth");
+const config = require("config");
 const { required } = require("joi");
 const { type } = require("@hapi/joi/lib/types/object");
 const bodyParser = require("body-parser");
 
+if (!config.get("jwtPrivateKey")) {
+  console.error("FATAL ERROR: jwtPrivateKey is not defined. ");
+  process.exit(1);
+}
 //Importing mongoose
 const mongoose = require("mongoose");
 //Database connection
@@ -31,6 +38,8 @@ app.use("/api/customers", customers);
 app.use("/api/genres", genres);
 app.use("/api/movies", movies);
 app.use("/api/rentals", rentals);
+app.use("/api/users", users);
+app.use("/api/auth", auth);
 app.use("/", home);
 // how to know your current environment
 //console.log(`NODE_ENV: ${process.env.node_env}`);
