@@ -1,12 +1,14 @@
 //Service for managing a list of genres
 //create.update and delete a genres
 // const Joi = require("joi");
-const debug = require("debug")("app:startup");
+// const debug = require("debug")("app:startup");
 const express = require("express");
 const app = express();
 const customers = require("./routes/customers");
 const genres = require("./routes/genre");
 const home = require("./routes/home");
+const movies = require("./routes/movies");
+const rentals = require("./routes/rentals");
 const { required } = require("joi");
 const { type } = require("@hapi/joi/lib/types/object");
 const bodyParser = require("body-parser");
@@ -27,6 +29,8 @@ app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use("/api/customers", customers);
 app.use("/api/genres", genres);
+app.use("/api/movies", movies);
+app.use("/api/rentals", rentals);
 app.use("/", home);
 // how to know your current environment
 //console.log(`NODE_ENV: ${process.env.node_env}`);
