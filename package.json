@@ -11,10 +11,17 @@
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^15.0.3",
+    "bcrypt": "^5.1.1",
+    "config": "^3.3.12",
     "debug": "^4.3.4",
     "express": "^4.19.2",
+    "fawn": "^2.1.5",
     "joi": "^17.13.1",
-    "mongoose": "^8.4.1"
+    "joi-objectid": "^4.0.2",
+    "joi-password-complexity": "^5.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.13.22"
   },
   "description": ""
 }
